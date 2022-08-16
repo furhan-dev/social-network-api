@@ -40,11 +40,19 @@ connection.once('open', async () => {
     users.push({
       username: username,
       email: email,
-      thoughts: randomThoughts
     });
   });
 
   await Thought.collection.insertMany(thoughts);
+  for (const user of users) {
+    const thoughtIds = [];
+    await Thought.find({ username: user.username })
+      .then(results => {
+        thoughtIds.push(...results.map(result => result._id));
+        user.thoughts = thoughtIds;
+      })
+      .catch(err => console.log(err));
+  }
   await User.collection.insertMany(users);
 
   // Log out the seed data to indicate what should appear in the database
