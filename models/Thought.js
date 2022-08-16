@@ -12,12 +12,6 @@ const thoughtSchema = new Schema(
       minLength: 1,
       maxLenght: 280
     },
-    createdAt:
-    {
-      type: Date,
-      default: Data.now,
-      get: function () { return moment(this.createdAt, "MM YYYY hh:mm:ss"); }
-    },
     username: [
       {
         type: String,
@@ -25,6 +19,12 @@ const thoughtSchema = new Schema(
       },
     ],
     reactions: [Reaction],
+    createdAt:
+    {
+      type: Date,
+      default: Date.now,
+      get: function () { return moment(this.createdAt, "MM YYYY hh:mm:ss"); }
+    },
   },
   {
     // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.
@@ -45,6 +45,6 @@ thoughtSchema
   });
 
 // Initialize our Thought model
-const User = model('thought', thoughtSchema);
+const Thought = model('thought', thoughtSchema);
 
 module.exports = Thought;
