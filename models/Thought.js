@@ -21,10 +21,10 @@ const thoughtSchema = new Schema(
     reactions: [Reaction],
     createdAt:
     {
-      type: Date,
-      default: Date.now,
-      get: function () { return moment(this.createdAt, "MM YYYY hh:mm:ss"); }
-    },
+      type: String,
+      default: moment(),
+      get: value => moment(value).format("M/DD/YYYY h:mm:ss A")
+    }
   },
   {
     // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.

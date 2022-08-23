@@ -3,6 +3,7 @@ const { User, Thought } = require('../models/');
 module.exports = {
   getThoughts(req, res) {
     Thought.find()
+      .select('-__v')
       .then((thoughts) => res.json(thoughts))
       .catch((err) => res.status(500).json(err));
   },
@@ -23,7 +24,6 @@ module.exports = {
         { $addToSet: { thoughts: thought._id } },
         { new: true }
       ))
-      .select('-__v')
       .then((user) =>
         !user
           ? res.status(404).json({ message: `No user with userId ${req.body.userId} found!` })
