@@ -6,7 +6,11 @@
 
 A backend API for a social network built with Mongoose & Express.
 
-A walkthrough demo can be found [here](https://drive.google.com/file/d/1w6J5kmzYBd4OxOKVq9VOAD8oD49YdhFk/view)
+Walkthrough videos:
+
+[Part 1](https://drive.google.com/file/d/1pUO9DwhJybQizSwfgrP_OJ6pdNB2C-Nd/view)
+
+[Part 2](https://drive.google.com/file/d/19X_kGrlGyVTpL9Gvq0b7JDSH83SwjxiM/view)
 
 ## Table of Contents
 

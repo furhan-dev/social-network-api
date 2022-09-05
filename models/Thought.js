@@ -18,13 +18,13 @@ const thoughtSchema = new Schema(
         required: true,
       },
     ],
-    reactions: [Reaction],
-    createdAt:
+    created:
     {
-      type: String,
-      default: moment(),
-      get: value => moment(value).format("M/DD/YYYY h:mm:ss A")
-    }
+      type: Date,
+      default: () => new Date(),
+      get: timestamp => moment(timestamp).format('MM/DD/YYYY h:mm:ss a')
+    },
+    reactions: [Reaction],
   },
   {
     // Mongoose supports two Schema options to transform Objects after querying MongoDb: toJSON and toObject.

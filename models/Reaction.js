@@ -16,10 +16,10 @@ const reactionSchema = new Schema(
       type: String,
       required: true,
     },
-    createdAt: {
-      type: String,
-      default: moment(),
-      get: value => moment(value).format("M/DD/YYYY h:mm:ss A")
+    created: {
+      type: Date,
+      default: () => new Date(),
+      get: timestamp => moment(timestamp).format("M/DD/YYYY h:mm:ss A")
     },
   },
   {
